@@ -1,111 +1,123 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>House Price Predictor ML App</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
 
-  <style>
-
-      body {
-      background-image: url('static/images/h3.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-
-    h1   {color: red;}  /* CSS code for heading h1 */
-    p   {color: yellow;}  /* CSS code for heading h1 */
-
-    /* CSS code for button */
-    .button_css {
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ffffff;
-    padding: 20px;
-    border: 4px solid #494949 !important;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-    }
-
-    .button_css:hover {
-    color: #ffffff !important;
-    background: #f6b93b;
-    border-color: #f6b93b !important;
-    transition: all 0.4s ease 0s;
-    }
-
-    .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #203864;
-  color: white;
-  text-align: center;
-
-  /* unvisited link */
-  a:link { color: White; }
-  /* visited link */
-  a:visited { color: green; }
-}
-  </style>
-
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 <body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"></a></li>
+      </ul>
 
-  <!-- Show Oxstandhard Univercity Banner-->
-  <div>
-<!--    <img src="static/images/h.jpg" class="w3-border w3-padding" alt="AI" style="width:100%">-->
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#"></a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Predict the Price</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Enter the Information of House to Predict the Price
+        <br>
+        </h5>
+      </div>
+
+              <div class="row">
+    <form action='/predict' method="post" class="col s12">
+      <div class="row">
+
+        <div class="input-field col s4">
+            <label><b>Bathrooms</b></label>
+            <br>
+          <input placeholder="Bathrooms" width="48" height="10" name="bathrooms" type="number"  class="validate">
+        </div>
+        <div class="input-field col s4">
+            <label><b>balcony</b></label>
+            <br>
+          <input placeholder="Balcony" width="48" height="10" name="balcony" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>total_sqft_int</b></label>
+            <br>
+          <input placeholder="Total Squre Foot" width="48" height="10" step=".01" name="total_sqft_int" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>BHK</b></label>
+            <br>
+          <input placeholder="BHK" width="48" height="10" name="bhk" type="number"  class="validate">
+        </div>
+
+
+
+        <div class="input-field col s4">
+            <label><b>price_per_sqft</b></label>
+            <br>
+          <input placeholder="Price Per Squre Foot" step=".01" width="48" height="10" name="price_per_sqft" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>area_type</b></label>
+            <br>
+          <input placeholder="area_type" width="48" height="10" name="area_type" type="text"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>availability</b></label>
+            <br>
+          <input placeholder="availability" width="48" height="10" name="availability" type="text"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>location</b></label>
+            <br>
+          <input placeholder="location" width="48" height="10" name="location" type="text"  class="validate">
+        </div>
+
+      </div>
+
+      <div class="row center">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+      </div>
+    </form>
+      </div>
+<div class="container">
+      <h1 class="header center orange-text"><br>
+        {{ prediction_text }}<br></h1>
+
+    </div>
   </div>
 
 
-
- <div class="login">
-
-    <!-- Form Get input to predict Marks-->
-    <center>
-    <form action="{{ url_for('predict')}}" method="post">
-        <h1>*Enter the Information of House to Predict the Price*</h1>
-
-    	<input align="center" type="number" name="bathrooms" placeholder="Bathrooms" width="48" height="10" step=".01"/><br>
-    	<input align="center" type="number" name="balcony" placeholder="Balcony" width="48" height="10" step=".01"/><br>
-    	<input align="center" type="number" name="total_sqft_int" placeholder="Total Squre Foot" width="48" height="10" step=".01"/><br>
-    	<input align="center" type="number" name="bhk" placeholder="BHK" width="48" height="10" step=".01"/><br>
-    	<input align="center" type="number" name="price_per_sqft" placeholder="Price Per Squre Foot" width="48" height="10" step=".01"/><br>
-    	<input type="text" name="area_type" placeholder="Area Type" /><br>
-    	<input type="text" name="availability" placeholder="House Availability" /><br>
-    	<input type="text" name="location" placeholder="House Location" />
-
-    	<br>
-
-        <br>
-
-        <!-- Show button -->
-        <div class="button_cont" align="center"><a class="button_css" href="" target="_blank" rel="nofollow noopener">
-            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict House Price</strong></button></a>
-        </div>
-
-    </form>
-    </center>
-
-   <!-- Show predicted output using ML model -->
-   <div>
-       <center>
-   <h2>{{ prediction_text }}</h2>
-       </center>
-   </div>
-
- </div>
+    <br><br>
+  </div>
+  </div>>
 
 
-<!--<div class="footer">-->
-<!--    <p>Indian AI Production<br>-->
-<!--    -->
-<!--      <a href="">Channel |</a>-->
-<!--      <a href=>| Website</a>-->
-<!--    </p>-->
-<!--</div>-->
-</body>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
 </html>
+
