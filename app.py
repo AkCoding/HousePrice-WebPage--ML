@@ -1,24 +1,35 @@
-#Import Libraries
-from flask import Flask, request, render_template
+from sys import stderr
 
-
-import model # load model.py
+from flask import Flask, render_template, request
+import pickle
+import numpy as np
 
 app = Flask(__name__)
 
-# render htmp page
-@app.route('/')
-def home():
-    return render_template('index.html')
+model = pickle.load(open('model.pkl', 'rb'))
+col=['MSSubClass', 'MSZoning', 'LotArea', 'LotShape', 'OverallQual',
+       'OverallCond', 'YearBuilt', 'YearRemodAdd', 'Exterior1st', 'MasVnrArea',
+       'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinSF1',
+       'BsmtFinType2', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', 'HeatingQC',
+       '1stFlrSF', '2ndFlrSF', 'LowQualFinSF', 'BsmtFullBath', 'KitchenQual',
+       'TotRmsAbvGrd', 'Fireplaces', 'FireplaceQu', 'GarageType',
+       'GarageYrBlt', 'GarageFinish', 'GarageCars', 'GarageArea', 'WoodDeckSF',
+       'OpenPorchSF', 'EnclosedPorch', '3SsnPorch', 'ScreenPorch', 'PoolArea',
+       'MoSold', 'SaleCondition']
 
-# get user input and the predict the output and return to user
-@app.route('/predict',methods=['POST'])
+@app.route('/')
+def hello_world():
+    return render_template("index.html")
+
+
+@app.route('/predict', methods=['POST'])
 def predict():
-    form = model.InputForm(request.form)
-    if request.method == 'POST' and form.validate():
-        result = "Yes ! You are eligible"
-    else:
-        result = "You are not eligible"  
-    return render_template('index.html', prediction_text='{}'.format(result))
-if __name__ == "__main__":
-    app.run()
+    int_features = [int(x) for x in request.form.values()]
+    final=[np.array(int_features, dtype=int)]
+    prediction=model.predict(final)[0][0].round(2)
+    # output=(prediction[0],2)
+
+    return render_template('index.html', prediction_text='The price of your dream house is {}.'.format(prediction))
+
+if __name__ == '__main__':
+    app.run(debug=True)

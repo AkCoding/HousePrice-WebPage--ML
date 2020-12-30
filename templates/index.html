@@ -38,60 +38,333 @@
 
               <div class="row">
     <form action='/predict' method="post" class="col s12">
-      <div class="row">
+
+
+
+
+
+        <div class="row">
 
         <div class="input-field col s4">
-            <label><b>Bathrooms</b></label>
+            <label><b>MSSubClass</b></label>
             <br>
-          <input placeholder="Bathrooms" width="48" height="10" name="bathrooms" type="number"  class="validate">
+          <input placeholder="Bathrooms" min="10" max="500" width="48" height="10" id='MSSubClass' name="MSSubClass" type="number"  class="validate">
         </div>
         <div class="input-field col s4">
-            <label><b>balcony</b></label>
+            <label><b>MSZoning</b></label>
             <br>
-          <input placeholder="Balcony" width="48" height="10" name="balcony" type="number"  class="validate">
+          <input placeholder="MSZoning" width="48" height="10" id='' name="MSZoning" type="number"  class="validate">
         </div>
 
         <div class="input-field col s4">
-            <label><b>total_sqft_int</b></label>
+            <label><b>LotArea</b></label>
             <br>
-          <input placeholder="Total Squre Foot" width="48" height="10" step=".01" name="total_sqft_int" type="number"  class="validate">
-        </div>
-
-
-        <div class="input-field col s4">
-            <label><b>BHK</b></label>
-            <br>
-          <input placeholder="BHK" width="48" height="10" name="bhk" type="number"  class="validate">
-        </div>
-
-
-
-        <div class="input-field col s4">
-            <label><b>price_per_sqft</b></label>
-            <br>
-          <input placeholder="Price Per Squre Foot" step=".01" width="48" height="10" name="price_per_sqft" type="number"  class="validate">
+          <input placeholder="LotFrontage" width="48" height="10" step=".01" name="LotFrontage" type="number"  class="validate">
         </div>
 
 
         <div class="input-field col s4">
-            <label><b>area_type</b></label>
+            <label><b>LotShape</b></label>
             <br>
-          <input placeholder="area_type" width="48" height="10" name="area_type" type="text"  class="validate">
+          <input placeholder="LotShape" width="48" height="10" name="LotShape" type="number"  class="validate">
+        </div>
+
+
+
+        <div class="input-field col s4">
+            <label><b>OverallQual</b></label>
+            <br>
+          <input placeholder="OverallQual" width="48" height="10" name="OverallQual" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>OverallCond</b></label>
+            <br>
+          <input placeholder="OverallCond" width="48" height="10" name="OverallCond" type="number"  class="validate">
         </div>
 
         <div class="input-field col s4">
-            <label><b>availability</b></label>
+            <label><b>YearBuilt</b></label>
             <br>
-          <input placeholder="availability" width="48" height="10" name="availability" type="text"  class="validate">
+          <input placeholder="YearBuilt" width="48" height="10" name="YearBuilt" type="number"  class="validate">
         </div>
 
         <div class="input-field col s4">
-            <label><b>location</b></label>
+            <label><b>YearRemodAdd	</b></label>
             <br>
-          <input placeholder="location" width="48" height="10" name="location" type="text"  class="validate">
+          <input placeholder="YearRemodAdd	" width="48" height="10" name="YearRemodAdd	" type="number"  class="validate">
         </div>
 
-      </div>
+
+
+
+
+
+
+                <div class="input-field col s4">
+            <label><b>Exterior1st</b></label>
+            <br>
+          <input placeholder="Exterior1st" width="48" height="10" name="Exterior1st" type="number"  class="validate">
+        </div>
+        <div class="input-field col s4">
+            <label><b>MasVnrArea</b></label>
+            <br>
+          <input placeholder="MasVnrArea" step=".01" width="48" height="10" name="MasVnrArea" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>BsmtQual</b></label>
+            <br>
+          <input placeholder="BsmtQual" width="48" height="10" name="BsmtQual" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>BsmtCond</b></label>
+            <br>
+          <input placeholder="BsmtCond" width="48" height="10" name="BsmtCond" type="number"  class="validate">
+        </div>
+
+
+
+        <div class="input-field col s4">
+            <label><b>BsmtExposure</b></label>
+            <br>
+          <input placeholder="BsmtExposure" width="48" height="10" name="BsmtExposure" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>BsmtFinType1</b></label>
+            <br>
+          <input placeholder="BsmtFinType1" width="48" height="10" name="BsmtFinType1" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>BsmtFinSF1</b></label>
+            <br>
+          <input placeholder="BsmtFinSF1" width="48" height="10" name="BsmtFinSF1" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>BsmtFinType2</b></label>
+            <br>
+          <input placeholder="BsmtFinType2"  min="100" max="500" width="48" height="10" name="BsmtFinType2" type="number"  class="validate">
+        </div>
+
+
+
+
+
+
+
+                <div class="input-field col s4">
+            <label><b>BsmtFinSF2</b></label>
+            <br>
+          <input placeholder="BsmtFinSF2" min="100" max="10000" width="48" height="10" name="BsmtFinSF2" type="number"  class="validate">
+        </div>
+        <div class="input-field col s4">
+            <label><b>BsmtUnfSF</b></label>
+            <br>
+          <input placeholder="BsmtUnfSF" min="100" max="10000" width="48" height="10" name="BsmtUnfSF" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>TotalBsmtSF</b></label>
+            <br>
+          <input placeholder="TotalBsmtSF" min="100" max="10000" width="48" height="10" step=".01" name="TotalBsmtSF" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>HeatingQC</b></label>
+            <br>
+          <input placeholder="HeatingQC" width="48" height="10" name="HeatingQC" type="number"  class="validate">
+        </div>
+
+
+
+        <div class="input-field col s4">
+            <label><b>1stFlrSF</b></label>
+            <br>
+          <input placeholder="1stFlrSF" step=".01" width="48" height="10" name="1stFlrSF" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>2ndFlrSF</b></label>
+            <br>
+          <input placeholder="2ndFlrSF" min="100" max="10000" width="48" height="10" name="2ndFlrSF" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>LowQualFinSF</b></label>
+            <br>
+          <input placeholder="LowQualFinSF" min="100" max="1000" width="48" height="10" name="LowQualFinSF" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>BsmtFullBath</b></label>
+            <br>
+          <input placeholder="BsmtFullBath" min="0" max="5" width="48" height="10" name="BsmtFullBath" type="number"  class="validate">
+        </div>
+
+
+
+
+
+
+
+
+
+                <div class="input-field col s4">
+            <label><b>KitchenQual</b></label>
+            <br>
+          <input placeholder="KitchenQual" min="1" max="10" width="48" height="10" name="KitchenQual" type="number"  class="validate">
+        </div>
+        <div class="input-field col s4">
+            <label><b>TotRmsAbvGrd</b></label>
+            <br>
+          <input placeholder="TotRmsAbvGrd" min="1" max="10" width="48" height="10" name="TotRmsAbvGrd" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>Fireplaces</b></label>
+            <br>
+          <input placeholder="Fireplaces" min="1" max="10" width="48" height="10" name="Fireplaces" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>FireplaceQu</b></label>
+            <br>
+          <input placeholder="FireplaceQu" min="1" max="10" width="48" height="10" name="FireplaceQu" type="number"  class="validate">
+        </div>
+
+
+
+        <div class="input-field col s4">
+            <label><b>GarageType</b></label>
+            <br>
+          <input placeholder="GarageType" width="48" min="1" max="10" height="10" name="GarageType" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>GarageYrBlt</b></label>
+            <br>
+          <input placeholder="GarageYrBlt" step=".01" width="48" height="10" name="GarageYrBlt" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>GarageFinish</b></label>
+            <br>
+          <input placeholder="GarageFinish" min="1" max="10" width="48" height="10" name="GarageFinish" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>GarageCars</b></label>
+            <br>
+          <input placeholder="GarageCars"  min="1" max="10" width="48" height="10" name="GarageCars" type="number"  class="validate">
+        </div>
+
+
+
+
+
+
+
+
+
+                <div class="input-field col s4">
+            <label><b>GarageArea</b></label>
+            <br>
+          <input placeholder="GarageArea" min="100" max="1000" width="48" height="10" name="GarageArea" type="number"  class="validate">
+        </div>
+        <div class="input-field col s4">
+            <label><b>WoodDeckSF</b></label>
+            <br>
+          <input placeholder="WoodDeckSF" min="100" max="1000" width="48" height="10" name="WoodDeckSF" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>OpenPorchSF</b></label>
+            <br>
+          <input placeholder="OpenPorchSF" min="100" max="1000" width="48" height="10" name="OpenPorchSF" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>EnclosedPorch</b></label>
+            <br>
+          <input placeholder="EnclosedPorch" min="100" max="1000" width="48" height="10" name="EnclosedPorch" type="number"  class="validate">
+        </div>
+
+
+
+        <div class="input-field col s4">
+            <label><b>3SsnPorch</b></label>
+            <br>
+          <input placeholder="3SsnPorch" width="48" height="10" name="3SsnPorch" type="number"  class="validate">
+        </div>
+
+
+        <div class="input-field col s4">
+            <label><b>ScreenPorch</b></label>
+            <br>
+          <input placeholder="ScreenPorch" width="48" height="10" name="ScreenPorch" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>PoolArea</b></label>
+            <br>
+          <input placeholder="PoolArea" width="48" height="10" name="PoolArea" type="number"  class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <label><b>MoSold</b></label>
+            <br>
+          <input placeholder="MoSold" width="48" height="10" name="MoSold" type="number"  class="validate">
+        </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="input-field col s4">
+            <label><b>SaleCondition</b></label>
+            <br>
+          <input placeholder="SaleCondition" min="1" max="5" width="48" height="10" name="SaleCondition" type="number"  class="validate">
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div class="row center">
 
